@@ -14,9 +14,9 @@ function maiuscula(aux){
   document.getElementById(aux).value = tmp;
 }
 
-document.addEventListener('keypress', (k) =>{
-  if (k.key == "Enter"){
-    newMsg();
+document.addEventListener('keypress', (e) => {
+  if (e.key == "Enter") {
+      newMsg();
   }
 });
 
@@ -85,8 +85,6 @@ function newMsg() {
       .catch(function (error) {
         alert("Algo deu errado! :*(");
       });
-  }else if (messageValue === 'C'){
-    document.getElementById("chatUL").appendChild('Cancelando compra! :*(');
   } else{
     alert("Opção inválida!");
   }
