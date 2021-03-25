@@ -1,0 +1,18 @@
+{
+  "name": "microprojeto-03",
+  "version": "1.0.0",
+  "description": "Microprojeto 03 - implementaçao de um serviço de lanche com API REST",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Yan Rocha Pimenta",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

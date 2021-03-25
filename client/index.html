@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sFood</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>sFood</h1>
+        <div class="chat">
+            <ul id="chatUL">Bem-vido ao sFood!<br>[V] para visualizar o cardapio<br>[P] para Listar os Pedidos<br>[A+IndiceProduto] para Adicionar um Pedido<br>Exemplo: A4 (para add o BROTINHO)<br>[B+IndiceProduto] para Buscar Produto<br>[E+IndicePedido] para Excluir um Pedido<br>[F] para finalizar ou [C] para cancelar.</ul>
+        </div>
+
+        <input id="message" class="input" type="text" onKeyUp="maiuscula('message')" placeholder="Escreva aqui...">
+        <span class="sendBtn" onclick="newMsg()">Enviar</span>
+
+    </section>
+    <script src="client.js"></script>
+</body>
+
+</html>
