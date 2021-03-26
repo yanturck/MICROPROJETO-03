@@ -8,20 +8,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // Itens do cardapio
-var cardapio = {
-    "PIZZA FAMILIA" : "19,00",
-    "PIZZA MÉDIA" : "14,00",
-    "PIZZA PEQUENA" : "12,00",
-    "BROTINHO" : "8,00",
-    "CACHORRO QUENTE" : "8,00",
-    "LASANHA": "12,00",
-    "HAMBURGUER" : "9,00",
-    "COMBO MINI-COXINHA" : "20,00",
-    "REFRIGERANTE 1L" : "2,00",
-    "REFRIGERANTE 2L" : "4,00",
-    "REFRIGERANTE 4L" : "6:00",
-    "SUCOS 500ML" : "1,00"
-};
+var cardapio = [
+    "PIZZA FAMILIA",
+    "PIZZA MÉDIA",
+    "PIZZA PEQUENA",
+    "BROTINHO",
+    "CACHORRO QUENTE",
+    "LASANHA",
+    "HAMBURGUER",
+    "COMBO MINI-COXINHA",
+    "REFRIGERANTE 1L",
+    "REFRIGERANTE 2L",
+    "REFRIGERANTE 4L",
+    "SUCOS 500ML"
+];
 // Indices do cardapio
 var indices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 var pedidos = []; // Lista pra guarda os pedidos
@@ -31,12 +31,11 @@ var pedidos = []; // Lista pra guarda os pedidos
  *
 ===========================================================CARDAPIO===========================================================*/
 app.get("/cardapio", (req, res) => {
-    /*var imprime = "\n";
+    var imprime = "\n";
     for (var i = 0; i<cardapio.length; i++){
         imprime += indices[i] + "." + cardapio[i] + "\n";
     }
-    res.send(imprime);*/
-    res.send(cardapio);
+    res.send(imprime);
 });
 /*app.post("/admin/senha/addCardapio", (req, res) => {
     const newLanche = req.body;

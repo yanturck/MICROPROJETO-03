@@ -13,7 +13,10 @@ rl.addListener("line", line => {
     const comando = line.toUpperCase();
     
     if (comando === 'V') {
-        axios.get('https://microprojeto-03.herokuapp.com/cardapio')
+        // https://microprojeto-03.herokuapp.com/cardapio
+        // não funcionou no heroku :*(
+
+        axios.get('http://127.0.0.1:2000/cardapio')
           .then(function (response) {
             const cardapio = response.data;
             console.log(cardapio);
@@ -22,7 +25,7 @@ rl.addListener("line", line => {
             console.log("\nAlgo deu errado! :*(\n");
           });
       } else if (comando === 'P') {
-        axios.get('https://microprojeto-03.herokuapp.com/cardapio/pedidos')
+        axios.get('http://127.0.0.1:2000/cardapio/pedidos')
           .then(function (response) {
             const pedidos = response.data;
             console.log(pedidos);
