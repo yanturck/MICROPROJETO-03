@@ -31,11 +31,12 @@ var pedidos = []; // Lista pra guarda os pedidos
  *
 ===========================================================CARDAPIO===========================================================*/
 app.get("/cardapio", (req, res) => {
-    var imprime = "\n";
+    /*var imprime = "\n";
     for (var i = 0; i<cardapio.length; i++){
         imprime += indices[i] + "." + cardapio[i] + "\n";
     }
-    res.send(imprime);
+    res.send(imprime);*/
+    res.send(cardapio);
 });
 /*app.post("/admin/senha/addCardapio", (req, res) => {
     const newLanche = req.body;
