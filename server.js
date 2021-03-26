@@ -7,28 +7,21 @@ const porta = process.env.PORT || 2000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Mensagens para o usuario
-/*var msgInicial = 'Bem-vido ao sFood!<br>[V] para visualizar o cardapio<br>[P] para Listar os Pedidos<br>[A+IndiceProduto] para Adicionar um Pedido<br>Exemplo: A4 (para add o BROTINHO)<br>[B+IndiceProduto] para Buscar Produto<br>[E+IndicePedido] para Excluir um Pedido<br>[F] para finalizar ou [C] para cancelar.';
-
-app.get("/msgHome", (req, res) => {
-    res.send(msgInicial);
-});*/
-
 // Itens do cardapio
-var cardapio = [
-    "PIZZA FAMILIA",
-    "PIZZA MÉDIA",
-    "PIZZA PEQUENA",
-    "BROTINHO",
-    "CACHORRO QUENTE",
-    "LASANHA",
-    "HAMBURGUER",
-    "COMBO MINI-COXINHA",
-    "REFRIGERANTE 1L",
-    "REFRIGERANTE 2L",
-    "REFRIGERANTE 4L",
-    "SUCOS 500ML"
-    ];
+var cardapio = {
+    "PIZZA FAMILIA" : "19,00",
+    "PIZZA MÉDIA" : "14,00",
+    "PIZZA PEQUENA" : "12,00",
+    "BROTINHO" : "8,00",
+    "CACHORRO QUENTE" : "8,00",
+    "LASANHA": "12,00",
+    "HAMBURGUER" : "9,00",
+    "COMBO MINI-COXINHA" : "20,00",
+    "REFRIGERANTE 1L" : "2,00",
+    "REFRIGERANTE 2L" : "4,00",
+    "REFRIGERANTE 4L" : "6:00",
+    "SUCOS 500ML" : "1,00"
+};
 // Indices do cardapio
 var indices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 var pedidos = []; // Lista pra guarda os pedidos
@@ -53,9 +46,9 @@ app.get("/cardapio", (req, res) => {
 app.get("/cardapio/busca/:ind", (req, res) => {
     const indice = req.params.ind - 1;
     if (indice > cardapio.length){
-        res.send("Item não existe! :(");
+        res.send("\nItem não existe! :(\n");
     }else{
-        res.send(cardapio[indice]);
+        res.send("\n" + cardapio[indice] + "\n");
     }
 });
 /*app.get("/admin/senha/delete/:ind", (req, res) =>{
@@ -73,34 +66,34 @@ app.get("/cardapio/busca/:ind", (req, res) => {
 app.get("/cardapio/add/:ind", (req, res) => {
     const indice = req.params.ind - 1;
     if (indice > cardapio.length){
-        res.send("Item não existe! :(");
+        res.send("\nItem não existe! :(\n");
     }else{
         pedidos.push(cardapio[indice]);
-        res.send("Item adicionado! :)");
+        res.send("\nItem adicionado! :)\n");
     }
 });
 app.get("/cardapio/pedidos", (req, res) => {
     if (pedidos.length == 0){
-        res.send("Não há nenhum Pedido! :(");
+        res.send("\nNão há nenhum Pedido! :(\n");
     }else{
         var i;
         var msg = "";
         for (i = 0; i < pedidos.length; i++){
             msg += (i+1) + "." + pedidos[i] + "\n";
         }
-        res.send("Seus pedidos são:" + msg);
+        res.send("\nSeus pedidos são:\n" + msg);
     }
 });
 app.get("/cardapio/pedidos/delete/:ind", (req, res) =>{
     const indice = req.params.ind - 1;
     if (pedidos.length == 0){
-        res.send("Não há pedidos! :(");
+        res.send("\nNão há pedidos! :(\n");
     }else{
         if (indice >= pedidos.length) {
-            res.send("Pedido não existe! :(");
+            res.send("\nPedido não existe! :(\n");
         }else {
-            pedidos.splice(indice,indice);
-            res.send("Pedido deletado! :)");
+            pedidos.splice(indice,1);
+            res.send("\nPedido deletado! :)\n");
         }
     }
 });
